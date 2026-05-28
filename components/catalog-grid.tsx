@@ -194,21 +194,21 @@ export function CatalogGrid({
               }}
             >
               <div className="grid md:grid-cols-12">
-                <div className="md:col-span-7 relative min-h-[320px]">
-                  <div className="absolute inset-0 pattern-tile opacity-[0.06]" aria-hidden="true" />
+                <div className="md:col-span-7 relative min-h-[320px] bg-background">
+                  <div className="absolute inset-0 pattern-tile opacity-[0.05]" aria-hidden="true" />
                   <Image
                     src={toPublicSrc(active.file)}
                     alt={active.name}
                     fill
                     priority
                     sizes="(min-width: 768px) 60vw, 100vw"
-                    style={{ objectFit: "cover" }}
+                    style={{ objectFit: "contain", padding: 26 }}
                   />
                   <div
                     className="absolute inset-0 pointer-events-none"
                     style={{
                       background:
-                        "linear-gradient(90deg, color-mix(in oklch, var(--brand-cacao) 25%, transparent), transparent 55%)"
+                        "radial-gradient(900px 520px at 25% 35%, color-mix(in oklch, var(--brand-arcilla) 14%, transparent), transparent 60%), radial-gradient(900px 520px at 75% 65%, color-mix(in oklch, var(--brand-cacao) 18%, transparent), transparent 62%)"
                     }}
                     aria-hidden="true"
                   />
