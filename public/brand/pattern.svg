@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="800" viewBox="0 0 800 800">
+  <defs>
+    <pattern id="p" width="160" height="160" patternUnits="userSpaceOnUse">
+      <rect width="160" height="160" fill="#e7e3e0"/>
+      <path d="M80 14 L106 40 L146 40 L146 80 L120 106 L120 146 L80 146 L54 120 L14 120 L14 80 L40 54 L40 14 Z"
+            fill="none" stroke="#ab9f94" stroke-width="6" stroke-linejoin="round" opacity="0.9"/>
+      <path d="M80 54 L96 70 L116 70 L116 90 L100 106 L100 126 L80 126 L64 110 L44 110 L44 90 L60 74 L60 54 Z"
+            fill="none" stroke="#3c3226" stroke-width="4" stroke-linejoin="round" opacity="0.35"/>
+      <circle cx="80" cy="80" r="6" fill="#3c3226" opacity="0.55"/>
+    </pattern>
+  </defs>
+
+  <rect width="800" height="800" fill="url(#p)"/>
+</svg>
+

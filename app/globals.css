@@ -1,0 +1,317 @@
+@import "tailwindcss";
+
+/* AYALMA — tokens de marca (OKLCH + HEX de referencia) */
+:root {
+  color-scheme: light;
+
+  --brand-arena: #e7e3e0;
+  --brand-tierra: #ab9f94;
+  --brand-arcilla: #b39a82;
+  --brand-cacao: #3c3226;
+  --brand-grafito: #393939;
+
+  --bg: oklch(93.5% 0.008 85);
+  --fg: oklch(22% 0.03 65);
+  --muted: oklch(48% 0.02 65);
+  --line: oklch(88% 0.012 85);
+
+  --paper: oklch(98% 0.004 85);
+  --ink: oklch(24% 0.04 65);
+  --ink-2: oklch(32% 0.03 65);
+
+  --background: var(--brand-arena);
+  --surface: var(--brand-tierra);
+  --surface-elevated: color-mix(in oklch, var(--paper) 92%, var(--brand-tierra) 8%);
+  --accent: var(--brand-arcilla);
+  --accent-hover: color-mix(in oklch, var(--brand-arcilla) 88%, white 12%);
+  --accent-2: var(--brand-tierra);
+
+  --radius: 18px;
+  --shadow-soft: 0 24px 60px oklch(0% 0 0 / 0.07);
+  --focus-ring: 2px solid var(--brand-arcilla);
+  --focus-offset: 2px;
+
+  --font-display: var(--font-cinzel), "Times New Roman", Georgia, serif;
+  --font-sans: var(--font-montserrat), system-ui, sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    --bg: oklch(16% 0.02 65);
+    --fg: oklch(94% 0.01 85);
+    --muted: oklch(72% 0.02 85);
+    --line: oklch(28% 0.02 65);
+    --paper: oklch(19% 0.02 65);
+    --ink: oklch(94% 0.01 85);
+    --ink-2: oklch(84% 0.01 85);
+    --background: oklch(18% 0.02 65);
+    --surface-elevated: oklch(22% 0.025 65);
+    --shadow-soft: 0 24px 60px oklch(0% 0 0 / 0.4);
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-sans);
+  letter-spacing: -0.01em;
+  text-rendering: geometricPrecision;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+::selection {
+  background: color-mix(in oklch, var(--brand-arcilla) 35%, transparent);
+}
+
+/* Tipografía aplicada */
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-sans {
+  font-family: var(--font-sans);
+}
+
+.type-h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2.75rem, 6vw, 5.125rem);
+  font-weight: 400;
+  line-height: 0.92;
+  letter-spacing: -0.03em;
+  color: var(--ink);
+}
+
+.type-h2 {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 3vw, 2.625rem);
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+
+.type-h3 {
+  font-family: var(--font-display);
+  font-size: clamp(1.35rem, 2vw, 1.75rem);
+  font-weight: 400;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+
+.type-body {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.6;
+  letter-spacing: 0;
+  color: var(--ink-2);
+}
+
+.type-body-sm {
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.55;
+  color: var(--ink-2);
+}
+
+.type-caption {
+  font-family: var(--font-sans);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.type-cta {
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0.04em;
+  color: var(--ink);
+}
+
+.text-ink-muted {
+  color: var(--muted);
+}
+
+.text-muted {
+  color: var(--muted);
+}
+
+.text-accent {
+  color: var(--brand-arcilla);
+}
+
+.bg-background {
+  background: var(--background);
+}
+
+.bg-surface {
+  background: color-mix(in oklch, var(--brand-tierra) 25%, var(--paper) 75%);
+}
+
+.border-line {
+  border-color: var(--line);
+}
+
+/* Layout */
+.container-x {
+  width: min(1200px, calc(100% - 48px));
+  margin-inline: auto;
+}
+
+.grid-12 {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.section-anchor {
+  scroll-margin-top: 96px;
+}
+
+.hairline {
+  height: 1px;
+  background: var(--line);
+}
+
+.chip {
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 8px 12px;
+  font-size: 12px;
+  color: var(--ink-2);
+  background: color-mix(in oklch, var(--paper) 80%, transparent);
+}
+
+.card {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: color-mix(in oklch, var(--surface-elevated) 88%, transparent);
+  box-shadow: var(--shadow-soft);
+}
+
+.shadow-soft {
+  box-shadow: var(--shadow-soft);
+}
+
+.kbd {
+  font-size: 11px;
+  padding: 2px 6px;
+  border: 1px solid var(--line);
+  border-bottom-width: 2px;
+  border-radius: 8px;
+  background: color-mix(in oklch, var(--paper) 90%, transparent);
+}
+
+/* Botones — estados UI */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 999px;
+  padding: 0.75rem 1.25rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  font-family: var(--font-sans);
+  background: var(--brand-cacao);
+  color: var(--brand-arena);
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: color-mix(in oklch, var(--brand-cacao) 90%, var(--brand-arcilla) 10%);
+}
+
+.btn-primary:focus-visible {
+  outline: var(--focus-ring);
+  outline-offset: var(--focus-offset);
+}
+
+.btn-primary:disabled {
+  opacity: 0.42;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 999px;
+  padding: 0.75rem 1.25rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  font-family: var(--font-sans);
+  background: color-mix(in oklch, var(--paper) 78%, transparent);
+  color: var(--ink);
+  border: 1px solid var(--line);
+  cursor: pointer;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.btn-secondary:hover:not(:disabled) {
+  border-color: var(--brand-arcilla);
+  color: var(--brand-arcilla);
+}
+
+.btn-secondary:focus-visible {
+  outline: var(--focus-ring);
+  outline-offset: var(--focus-offset);
+}
+
+.pattern-tile {
+  background-image: url("/brand/pattern.svg");
+  background-repeat: repeat;
+  background-size: 120px;
+}
+
+#galeria,
+#coleccion,
+#manual,
+#tipografia,
+#color,
+#patrones,
+#fotografia,
+#copy,
+#identidad,
+#aplicaciones,
+#publico {
+  scroll-margin-top: 96px;
+}
