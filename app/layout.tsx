@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Cinzel, Cinzel_Decorative, Montserrat } from "next/font/google";
 import "./globals.css";
 import { SmoothScroll } from "@/components/smooth-scroll";
+import { ThemeProvider } from "@/components/theme-provider";
 
 const cinzel = Cinzel({
   subsets: ["latin"],
@@ -25,7 +26,7 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-  title: "AYALMA — Manual de marca & colección",
+  title: "AYALMA",
   description:
     "Manual de identidad AYALMA: tipografía Cinzel y Montserrat, sistema de color, patrones, fotografía, copy y aplicaciones. Indumentaria Panzaleo contemporánea.",
   openGraph: {
@@ -47,7 +48,9 @@ export default function RootLayout({
       className={`${cinzel.variable} ${cinzelDecorative.variable} ${montserrat.variable}`}
     >
       <body>
-        <SmoothScroll>{children}</SmoothScroll>
+        <ThemeProvider>
+          <SmoothScroll>{children}</SmoothScroll>
+        </ThemeProvider>
       </body>
     </html>
   );

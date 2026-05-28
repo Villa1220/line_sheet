@@ -4,6 +4,7 @@ import { BrandLogo } from "@/components/brand-logo";
 import { manualNav } from "@/lib/brand-guidelines";
 import { Search, ShoppingBag } from "lucide-react";
 import { useEffect, useState } from "react";
+import { ThemeToggle } from "@/components/theme-toggle";
 
 export function SiteHeader() {
   const [scrolled, setScrolled] = useState(false);
@@ -50,6 +51,7 @@ export function SiteHeader() {
           </nav>
 
           <div className="col-span-6 lg:col-span-3 flex justify-end gap-2">
+            <ThemeToggle />
             <a href="#coleccion" className="chip hidden sm:inline-flex items-center gap-2 hover:opacity-80">
               <Search size={16} aria-hidden />
               <span>Buscar</span>
